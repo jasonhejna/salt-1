@@ -1,13 +1,8 @@
-/*************** PHP LOGIN SCRIPT V2.0*********************
-(c) Balakrishnan 2009. All Rights Reserved
+/*************** HappyData*********************
 
-Usage: This script can be used FREE of charge for any commercial or personal projects. Enjoy!
-
-Limitations:
-- This script cannot be sold.
-- This script should have copyright notice intact. Dont remove it please...
-- This script may not be provided for download except from its original site.
-
-For further usage, please contact me at http://www.php-login-script.com
+The users.sql needs to be setup.
+1. Open it with your version on SQL and create the table.
+2. Adjust connection settings in dbc.php
+3. Refer to the original login script at http://www.php-login-script.com/install.htm
 
 ***********************************************************/
