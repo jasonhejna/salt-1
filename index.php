@@ -9,7 +9,15 @@ if (isset($_SESSION['user_id'])) {?>
 <meta charset="utf-8" />
 <title>Happy Data</title>
 <link rel="stylesheet" href="css/960_24_col.css" />
-
+<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.23.custom.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.23.custom.min.js"></script>
+	<!-- jquery for the happiness buttons http://docs.jquery.com/UI/Button#theming -->
+	<script>
+	$(function() {
+		$( "#radio" ).buttonset();
+	});
+	</script>
 </head>
 <body>
 <div class="container_24">
@@ -20,8 +28,16 @@ if (isset($_SESSION['user_id'])) {?>
   <a href="logout.php">Logout </a>
 </div>
 </div>
-<div class="grid_5 prefix_9 suffix_10">
-	<p>centerish</p>
+<div class="grid_24">
+	<p>At this moment, would you say you are</p>
+	<form>
+	<div id="radio">
+		<input type="radio" id="radio1" name="radio" /><label for="radio1">very happy</label>
+		<input type="radio" id="radio2" name="radio" /><label for="radio2">rather happy</label>
+		<input type="radio" id="radio3" name="radio" /><label for="radio3">not very happy</label>
+		<input type="radio" id="radio4" name="radio" /><label for="radio4">not at all happy</label>
+	</div>
+	</form>
 </div>
 
 </div> <!--where I left 960 end div -->
