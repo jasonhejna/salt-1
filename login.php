@@ -20,7 +20,7 @@ foreach($_GET as $key => $value) {
 	$get[$key] = filter($value); //get variables are filtered.
 }
 
-if ($_POST['doLogin']=='doLogin')
+if ($_POST['doLogin']=='Login')
 {
 
 foreach($_POST as $key => $value) {
@@ -166,12 +166,13 @@ $num = mysql_num_rows($result);
           <tr> 
             <td colspan="2"> <div align="center"> 
                 <p> 
-                  <input name="doLogin" type="submit" id="doLogin" value="Login">
+                  <input name="doLogin" type="submit" id="doLogin3" value="Login">
                 </p>
                 <p><a href="register.php">Register Free</a><font color="#FF6600"> 
                   |</font> <a href="forgot.php">Forgot Password</a> <font color="#FF6600"> 
                   </font></p>
-
+                <p><span style="font: normal 9px verdana">Powered by <a href="http://php-login-script.com">PHP 
+                  Login Script v2.3</a></span></p>
               </div></td>
           </tr>
         </table>
