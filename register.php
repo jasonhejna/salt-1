@@ -155,7 +155,7 @@ THIS IS AN AUTOMATED RESPONSE.
     "From: \"Member Registration\" <auto-reply@$host>\r\n" .
      "X-Mailer: PHP/" . phpversion());
 
-  header("Location: thankyou.php");  
+  header("Location: login.php");  //remember to delete thankyou.php, as login is always true without email activation as set in login.php
   exit();
      
      } 
@@ -217,19 +217,13 @@ THIS IS AN AUTOMATED RESPONSE.
       <br>
       <form action="register.php" method="post" name="regForm" id="regForm" >
         <table width="95%" border="0" cellpadding="3" cellspacing="3" class="forms">
-          <tr> 
-            <td colspan="2">Your Name / Company Name<span class="required"><font color="#CC0000">*</font></span><br> 
-              <input name="full_name" type="text" id="full_name" size="40" class="required"></td>
-          </tr>
-          <tr> 
-            <td colspan="2">&nbsp;</td>
-          </tr>
 
           <tr> 
-            <td colspan="2">&nbsp;</td>
+            <td colspan="2"><h4><strong>Login Details</strong></h4></td>
           </tr>
           <tr> 
-            <td colspan="2"><h4><strong>Login Details</strong></h4></td>
+            <td>Your Name<span class="required"><font color="#CC0000">*</font></span></td> 
+            <td><input name="full_name" type="text" id="full_name" class="required"></td>
           </tr>
           <tr> 
             <td>Username<span class="required"><font color="#CC0000">*</font></span></td>

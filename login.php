@@ -85,7 +85,7 @@ $num = mysql_num_rows($result);
 				  setcookie("user_key", sha1($ckey), time()+60*60*24*COOKIE_TIME_OUT, "/");
 				  setcookie("user_name",$_SESSION['user_name'], time()+60*60*24*COOKIE_TIME_OUT, "/");
 				   }
-		  header("Location: myaccount.php");
+		  header("Location: index.php");
 		 }
 		}
 		else
