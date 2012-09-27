@@ -18,16 +18,26 @@ if (isset($_SESSION['user_id'])) {
 <script type="text/javascript" src="js/jquery-ui-1.8.23.custom.min.js"></script>
 	<!-- jquery for the happiness buttons http://docs.jquery.com/UI/Button#theming -->
 	<script>
+	
+	$.fx.speeds._default = 700; //animation speed
 	$(document).ready(function(){
 		$("#radio").click(function(){
-    		$("#radio").hide();
-
+    		//$("#radio").hide();
+    		$( "#dialog" ).dialog( "open" );
+			return false;
   		});
   	});
 	$(function() {
 		$( "#radio" ).buttonset();
-	});
 
+	});
+	$(function() {
+		$( "#dialog" ).dialog({
+			autoOpen: false,
+			show: "blind",
+			hide: "explode"
+		});
+	});	
 	</script>
 </head>
 <body>
@@ -50,7 +60,10 @@ if (isset($_SESSION['user_id'])) {
 	</div>
 	</form>
 </div>
-
+<div class="clear"></div>
+<div class="grid_24">
+<div id="dialog" title="confirmation">
+</div>
 </div> <!--where I left 960 end div -->
 </body>
 </html>
