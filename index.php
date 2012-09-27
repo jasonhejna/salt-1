@@ -20,22 +20,40 @@ if (isset($_SESSION['user_id'])) {
 	<script>
 	
 	$.fx.speeds._default = 700; //animation speed
-/*	$(document).ready(function(){
-		$("#radio").click(function(){
+	$(document).ready(function(){
+		$("#radio1").click(function(){
     		//$("#radio").hide();
 
-    		$( "#radio" ).buttonset();
+    		var happiness = '1';
     		var unix_time = Math.round(+new Date()/1000);
     		$( "#dialog" ).dialog( "open" );
 			return false;
   		});
-  	});*/
-  	$("input:radio[name=radio]").click(function() {
-    var value = $(this).val();
-    $( "#dialog" ).dialog( "open" );
-    return false;
-    print('value');
-	});
+  		$("#radio2").click(function(){
+    		//$("#radio").hide();
+
+    		var happiness = '2';
+    		var unix_time = Math.round(+new Date()/1000);
+    		$( "#dialog" ).dialog( "open" );
+			return false;
+  		});
+  		$("#radio3").click(function(){
+    		//$("#radio").hide();
+
+    		var happiness = '3';
+    		var unix_time = Math.round(+new Date()/1000);
+    		$( "#dialog" ).dialog( "open" );
+			return false;
+  		});
+  		$("#radio4").click(function(){
+    		//$("#radio").hide();
+
+    		var happiness = '4';
+    		var unix_time = Math.round(+new Date()/1000);
+    		$( "#dialog" ).dialog( "open" );
+			return false;
+  		});
+  	});
 
 	$(function() {
 		$( "#radio" ).buttonset();
@@ -50,9 +68,18 @@ if (isset($_SESSION['user_id'])) {
 			buttons: {
 						Submit: function() {
 							$( this ).dialog( "close" );
+							$.ajax({
+							    type: 'post',
+							    url: 'happypost.php',
+							    data: 'id=10',
+							    success: function(response) {
+							        alert(response);
+							    }
+							});
 							<?php
+							//SQL SHOULD BE IN ITS OWN FILE WITH AJAX RESPONSE
 							 mysql_query("INSERT INTO happy (`user_id`,`happiness`,`unix_time`)
-					 		VALUES ('$goturid','#radio','unix_time')
+					 		VALUES ('$goturid','happiness','unix_time')
 					 		") or die(mysql_error()); 
 					 		?>
 						},
@@ -74,7 +101,7 @@ if (isset($_SESSION['user_id'])) {
   <a href="logout.php">Logout </a>
 </div>
 </div>
-<div class="grid_24">
+<div class="grid_19 prefix_5">
 	<p>At this moment, would you say you are</p>
 	<form>
 	<div id="radio">
