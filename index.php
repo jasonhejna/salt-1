@@ -18,37 +18,37 @@ if (isset($_SESSION['user_id'])) {
 <script type="text/javascript" src="js/jquery-ui-1.8.23.custom.min.js"></script>
 	<!-- jquery for the happiness buttons http://docs.jquery.com/UI/Button#theming -->
 	<script>
-	
+	var happiness;
 	$.fx.speeds._default = 700; //animation speed
 	$(document).ready(function(){
 		$("#radio1").click(function(){
     		//$("#radio").hide();
-
-    		var happiness = '1';
+			happiness = '1';
+    		//<?php $happiness = '1';?>
     		var unix_time = Math.round(+new Date()/1000);
     		$( "#dialog" ).dialog( "open" );
 			return false;
   		});
   		$("#radio2").click(function(){
     		//$("#radio").hide();
-
-    		var happiness = '2';
+			happiness = '2';
+    		//<?php $happiness = '2';?>
     		var unix_time = Math.round(+new Date()/1000);
     		$( "#dialog" ).dialog( "open" );
 			return false;
   		});
   		$("#radio3").click(function(){
     		//$("#radio").hide();
-
-    		var happiness = '3';
+			happiness = '3';
+    		//<?php $happiness = '3';?>
     		var unix_time = Math.round(+new Date()/1000);
     		$( "#dialog" ).dialog( "open" );
 			return false;
   		});
-  		$("#radio4").click(function(){
+  		$("#radi04").click(function(){
     		//$("#radio").hide();
-
-    		var happiness = '4';
+			happiness = '4';
+    		//<?php $happiness = '7';?>
     		var unix_time = Math.round(+new Date()/1000);
     		$( "#dialog" ).dialog( "open" );
 			return false;
@@ -71,16 +71,16 @@ if (isset($_SESSION['user_id'])) {
 							$.ajax({
 							    type: 'post',
 							    url: 'happypost.php',
-							    data: 'id=10',
+							    data: 'happz='+happiness,
 							    success: function(response) {
 							        alert(response);
 							    }
 							});
 							<?php
 							//SQL SHOULD BE IN ITS OWN FILE WITH AJAX RESPONSE
-							 mysql_query("INSERT INTO happy (`user_id`,`happiness`,`unix_time`)
-					 		VALUES ('$goturid','happiness','unix_time')
-					 		") or die(mysql_error()); 
+							// mysql_query("INSERT INTO happy (`user_id`,`happiness`,`unix_time`)
+					 		//VALUES ('$goturid','$happiness','unix_time')
+					 		//") or die(mysql_error()); 
 					 		?>
 						},
 						Cancel: function() {
