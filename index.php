@@ -20,22 +20,47 @@ if (isset($_SESSION['user_id'])) {
 	<script>
 	
 	$.fx.speeds._default = 700; //animation speed
-	$(document).ready(function(){
+/*	$(document).ready(function(){
 		$("#radio").click(function(){
     		//$("#radio").hide();
+
+    		$( "#radio" ).buttonset();
+    		var unix_time = Math.round(+new Date()/1000);
     		$( "#dialog" ).dialog( "open" );
 			return false;
   		});
-  	});
+  	});*/
+  	$("input:radio[name=radio]").click(function() {
+    var value = $(this).val();
+    $( "#dialog" ).dialog( "open" );
+    return false;
+    print('value');
+	});
+
 	$(function() {
 		$( "#radio" ).buttonset();
-
 	});
 	$(function() {
 		$( "#dialog" ).dialog({
+			resizable: false,
+			height:140,
 			autoOpen: false,
 			show: "blind",
-			hide: "explode"
+			hide: "explode",
+			buttons: {
+						Submit: function() {
+							$( this ).dialog( "close" );
+							<?php
+							 mysql_query("INSERT INTO happy (`user_id`,`happiness`,`unix_time`)
+					 		VALUES ('$goturid','#radio','unix_time')
+					 		") or die(mysql_error()); 
+					 		?>
+						},
+						Cancel: function() {
+							$( this ).dialog( "close" );
+						},
+					}
+
 		});
 	});	
 	</script>
@@ -63,6 +88,7 @@ if (isset($_SESSION['user_id'])) {
 <div class="clear"></div>
 <div class="grid_24">
 <div id="dialog" title="confirmation">
+<p>hello<p>
 </div>
 </div> <!--where I left 960 end div -->
 </body>
