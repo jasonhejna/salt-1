@@ -2,7 +2,11 @@
 include 'dbc.php';
 page_protect();
 
-if (isset($_SESSION['user_id'])) {?>
+if (isset($_SESSION['user_id'])) {
+	$goturid = $_SESSION['user_id'];
+	echo $goturid; //save this for writing into happiness table
+
+	?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +18,16 @@ if (isset($_SESSION['user_id'])) {?>
 <script type="text/javascript" src="js/jquery-ui-1.8.23.custom.min.js"></script>
 	<!-- jquery for the happiness buttons http://docs.jquery.com/UI/Button#theming -->
 	<script>
+	$(document).ready(function(){
+		$("#radio").click(function(){
+    		$("#radio").hide();
+
+  		});
+  	});
 	$(function() {
 		$( "#radio" ).buttonset();
 	});
+
 	</script>
 </head>
 <body>
