@@ -19,13 +19,16 @@ if (isset($_SESSION['user_id'])) {
 	<!-- jquery for the happiness buttons http://docs.jquery.com/UI/Button#theming -->
 	<script>
 	var happiness;
+	var unix_time;
+	var date= new Date();
 	$.fx.speeds._default = 700; //animation speed
 	$(document).ready(function(){
 		$("#radio1").click(function(){
     		//$("#radio").hide();
 			happiness = '1';
     		//<?php $happiness = '1';?>
-    		var unix_time = Math.round(+new Date()/1000);
+    		//var dat = new Date();
+    		unix_time = date.getTime()/1000;
     		$( "#dialog" ).dialog( "open" );
 			return false;
   		});
@@ -33,7 +36,7 @@ if (isset($_SESSION['user_id'])) {
     		//$("#radio").hide();
 			happiness = '2';
     		//<?php $happiness = '2';?>
-    		var unix_time = Math.round(+new Date()/1000);
+    		unix_time = Math.round((new Date()).getTime() / 1000);
     		$( "#dialog" ).dialog( "open" );
 			return false;
   		});
@@ -41,15 +44,15 @@ if (isset($_SESSION['user_id'])) {
     		//$("#radio").hide();
 			happiness = '3';
     		//<?php $happiness = '3';?>
-    		var unix_time = Math.round(+new Date()/1000);
+    		unix_time = Math.round((new Date()).getTime() / 1000);
     		$( "#dialog" ).dialog( "open" );
 			return false;
   		});
-  		$("#radi04").click(function(){
+  		$("#radio4").click(function(){
     		//$("#radio").hide();
 			happiness = '4';
     		//<?php $happiness = '7';?>
-    		var unix_time = Math.round(+new Date()/1000);
+    		unix_time = Math.round((new Date()).getTime() / 1000);
     		$( "#dialog" ).dialog( "open" );
 			return false;
   		});
@@ -68,10 +71,11 @@ if (isset($_SESSION['user_id'])) {
 			buttons: {
 						Submit: function() {
 							$( this ).dialog( "close" );
+							//var unix = unix_time;
 							$.ajax({
 							    type: 'post',
 							    url: 'happypost.php',
-							    data: 'happz='+happiness,
+							    data: {yahoo:unix_time,happiness:happiness},
 							    success: function(response) {
 							        alert(response);
 							    }
